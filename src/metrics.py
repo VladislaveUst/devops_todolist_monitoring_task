@@ -1,7 +1,8 @@
-from prometheus_client import Counter
+from django.http import HttpResponse
+from prometheus_client import generate_latest, CONTENT_TYPE_LATEST
 
-REQUEST_COUNT = Counter(
-    'http_requests_total',
-    'Total number of HTTP requests',
-    ['method', 'path']
-)
+def metrics(request):
+    return HttpResponse(
+        generate_latest(),
+        content_type=CONTENT_TYPE_LATEST
+    )
