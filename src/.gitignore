@@ -8,4 +8,6 @@ build/
 *.zip
 *.sql
 .env
-.idea
+.idea/
+.vscode/
+mysql-chart/
